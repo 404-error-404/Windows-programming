@@ -8,7 +8,38 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
 
+            <TextBlock
+                
+                Text="Settings" />
+
+            <TextBlock
+                Margin="0,25,0,5"
+                Text="Data source" />
+            <RadioButton
+                x:Name="SqliteRadio"
+                Content="Sqlite (Local)"
+                GroupName="DataSource"
+                Tag="Sqlite" />
+            <RadioButton
+                x:Name="RestRadio"
+                Content="REST (Azure)"
+                GroupName="DataSource"
+                Tag="Rest" />
+            <TextBlock Text="Data is read-only while using REST unless you deploy your own service. See the GitHub repository for details." />
+
+            <HyperlinkButton
+                x:Name="PrivacyButton"
+                Margin="0,25,0,0"
+                Content="Privacy statement" />
+            <HyperlinkButton
+                x:Name="LicenseButton"
+                Content="Additional license terms" />
+            <HyperlinkButton
+                x:Name="GitHubButton"
+                Content="GitHub repository" />
+        </StackPanel>
     </Grid>
 </Page>

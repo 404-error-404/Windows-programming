@@ -43,6 +43,7 @@ namespace Windows_programming
 
         private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
+            // 获取点击的菜单名称
             var label = args.InvokedItem as string;
             // 判断点击了哪个，容错处理返回null
             var pageType =
@@ -73,18 +74,14 @@ namespace Windows_programming
         {
             if (e.NavigationMode == NavigationMode.Back)
             {
-                //if (e.SourcePageType == typeof(CustomerListPage))
-                //{
-                //    NavView.SelectedItem = CustomerListMenuItem;
-                //}
-                //else if (e.SourcePageType == typeof(OrderListPage))
-                //{
-                //    NavView.SelectedItem = OrderListMenuItem;
-                //}
-                //else if (e.SourcePageType == typeof(SettingsPage))
-                //{
-                //    NavView.SelectedItem = NavView.SettingsItem;
-                //}
+                if (e.SourcePageType == typeof(CustomerListPage))
+                {
+                    NavView.SelectedItem = CustomerListMenuItem;
+                }
+                else if (e.SourcePageType == typeof(SettingsPage))
+                {
+                    NavView.SelectedItem = NavView.SettingsItem;
+                }
             }
         }
 
