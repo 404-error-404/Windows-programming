@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows_programming.view;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -42,7 +43,15 @@ namespace Windows_programming
 
         private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-
+            var label = args.InvokedItem as string;
+            // 判断点击了哪个，容错处理返回null
+            var pageType =
+                args.IsSettingsInvoked ? typeof(SettingsPage) :
+                label == CustomerListLabel ? typeof(CustomerListPage) : null;
+            if (pageType != null && pageType != AppFrame.CurrentSourcePageType)
+            {
+                AppFrame.Navigate(pageType);
+            }
         }
 
         /// <summary>
