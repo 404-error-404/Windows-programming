@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,65 @@ namespace Windows_programming
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        // TODO 还不知道这个变量干嘛用的，但似乎是上一步相关的，先标记着
+        public Frame AppFrame => frame;
+
+        // 一些常量
+        // 菜单栏名称
+        public readonly string CustomerListLabel = "Customer list";
+
+        public readonly string OrderListLabel = "Order list";
+
+        // 项目GitHub地址
+        public readonly string GitHubUrl = "https://github.com/404-error-404/Windows-programming";
+
+        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+
+        }
+
+        /// <summary>
+        /// 异步方法，在浏览器中打开github地址
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void ViewCodeNavPaneButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            await Launcher.LaunchUriAsync(new Uri(GitHubUrl));
+        }
+
+        /// <summary>
+        /// 点击菜单栏触发对应事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnNavigatingToPage(object sender, NavigatingCancelEventArgs e)
+        {
+            if (e.NavigationMode == NavigationMode.Back)
+            {
+                //if (e.SourcePageType == typeof(CustomerListPage))
+                //{
+                //    NavView.SelectedItem = CustomerListMenuItem;
+                //}
+                //else if (e.SourcePageType == typeof(OrderListPage))
+                //{
+                //    NavView.SelectedItem = OrderListMenuItem;
+                //}
+                //else if (e.SourcePageType == typeof(SettingsPage))
+                //{
+                //    NavView.SelectedItem = NavView.SettingsItem;
+                //}
+            }
+        }
+
+        private void NavView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            if (AppFrame.CanGoBack)
+            {
+                AppFrame.GoBack();
+            }
         }
     }
 }

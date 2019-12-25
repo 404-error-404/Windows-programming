@@ -2,13 +2,121 @@
     x:Class="Windows_programming.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Windows_programming"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Windows.UI.Xaml.Controls"
+    xmlns:local1="using:Windows.ApplicationModel.Contacts"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" TabIndex="2147483645">
 
-    <Grid>
 
+
+
+    <Grid
+        x:Name="LayoutRoot"
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <NavigationView
+            x:Name="NavView"
+            AlwaysShowHeader="False"
+            IsSettingsVisible="True"
+            IsBackEnabled="{x:Bind AppFrame.CanGoBack, Mode=OneWay}"
+            ItemInvoked="NavigationView_ItemInvoked"
+            BackRequested="NavView_BackRequested">
+
+
+
+            <NavigationView.MenuItems>
+                <NavigationViewItem
+                    x:Name="CustomerListMenuItem"
+                    Content="{x:Bind CustomerListLabel}" 
+                    ToolTipService.ToolTip="{x:Bind CustomerListLabel}"
+                    Icon="ContactInfo"/>
+                <NavigationViewItem
+                    x:Name="OrderListMenuItem"
+                    Content="{x:Bind OrderListLabel}" 
+                    ToolTipService.ToolTip="{x:Bind OrderListLabel}"
+                    Icon="Shop"/>
+            </NavigationView.MenuItems>
+
+            <NavigationView.PaneFooter>
+                <StackPanel>
+                    <NavigationViewItem
+                        Content="View code"
+                        ToolTipService.ToolTip="View code"
+                        Tapped="ViewCodeNavPaneButton_Tapped">
+                        <NavigationViewItem.Icon>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE943;"/>
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                    <!--<uc:AuthenticationControl/>-->
+                </StackPanel>
+            </NavigationView.PaneFooter>
+
+            <!-- In OnNavigatingToPage, we synchronize the selected item in the NavigationView with the current page. -->
+            <Frame
+                x:Name="frame"
+                Margin="20,0,0,0"
+                Navigating="OnNavigatingToPage">
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition>
+                            <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                                <EntranceNavigationTransitionInfo />
+                            </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                        </NavigationThemeTransition>
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
+            </Frame>
+
+        </NavigationView>
     </Grid>
+
+    <!--下边是，，，无话可说的尝试-->
+    <!--<Grid>
+
+        <muxc:NavigationView x:Name="navigation">
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem x:Name="connectDatabase" Icon="Play" Content="连接数据库" Tag="SamplePage1" Tapped="NavigationViewItem_Tapped" />
+                <muxc:NavigationViewItem Icon="Save" Content="保存" Tag="SamplePage2" />
+                <muxc:NavigationViewItem Icon="Refresh" Content="刷新" Tag="SamplePage3" />
+                <muxc:NavigationViewItem Icon="Stop" Content="退出" Tag="SamplePage4" />
+            </muxc:NavigationView.MenuItems>
+
+            <Grid>
+
+                <muxc:TreeView>
+                    <muxc:TreeView.RootNodes>
+                        <muxc:TreeViewNode Content="Flavors" IsExpanded="True">
+                            <muxc:TreeViewNode.Children>
+                                <muxc:TreeViewNode Content="Vanilla"/>
+                                <muxc:TreeViewNode Content="Strawberry"/>
+                                <muxc:TreeViewNode Content="Chocolate"/>
+                            </muxc:TreeViewNode.Children>
+                        </muxc:TreeViewNode>
+                    </muxc:TreeView.RootNodes>
+                </muxc:TreeView>
+
+                --><!--<TreeView CanDragItems="True" AllowDrop="True">
+                    <TreeView.RootNodes>
+                        
+                        <TreeViewNode>
+                            <TreeViewNode.Children>
+                                <TreeViewNode Content="1DSFD"/>
+                            </TreeViewNode.Children>
+                        </TreeViewNode>
+
+                        <TreeViewNode Content="root" HasUnrealizedChildren="True">
+                            <TreeViewNode.Children>
+                                <TreeViewNode Content="1"/>
+                            </TreeViewNode.Children>
+                        </TreeViewNode>
+
+                    </TreeView.RootNodes>
+                </TreeView>--><!--
+            </Grid>
+
+        </muxc:NavigationView>
+
+    </Grid>-->
 </Page>
