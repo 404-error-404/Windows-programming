@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows_programming.view;
+using MySQL_DLL;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -34,7 +35,7 @@ namespace Windows_programming
 
         // 一些常量
         // 菜单栏名称
-        public readonly string CustomerListLabel = "Customer list";
+        public readonly string StudentListLabel = "Student list";
 
         public readonly string OrderListLabel = "Order list";
 
@@ -48,7 +49,7 @@ namespace Windows_programming
             // 判断点击了哪个，容错处理返回null
             var pageType =
                 args.IsSettingsInvoked ? typeof(SettingsPage) :
-                label == CustomerListLabel ? typeof(CustomerListPage) : null;
+                label == StudentListLabel ? typeof(StudentListPage) : null;
             if (pageType != null && pageType != AppFrame.CurrentSourcePageType)
             {
                 AppFrame.Navigate(pageType);
@@ -74,9 +75,9 @@ namespace Windows_programming
         {
             if (e.NavigationMode == NavigationMode.Back)
             {
-                if (e.SourcePageType == typeof(CustomerListPage))
+                if (e.SourcePageType == typeof(StudentListPage))
                 {
-                    NavView.SelectedItem = CustomerListMenuItem;
+                    NavView.SelectedItem = StudentListMenuItem;
                 }
                 else if (e.SourcePageType == typeof(SettingsPage))
                 {

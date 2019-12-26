@@ -13,32 +13,32 @@
 
             <TextBlock
                 
-                Text="Settings" />
+                Text="设置" />
 
             <TextBlock
                 Margin="0,25,0,5"
-                Text="Data source" />
+                Text="风格" />
             <RadioButton
-                x:Name="SqliteRadio"
-                Content="Sqlite (Local)"
-                GroupName="DataSource"
-                Tag="Sqlite" />
+                x:Name="whiteRadio"
+                Content="白色"
+                GroupName="style"
+                Tag="white" />
             <RadioButton
-                x:Name="RestRadio"
-                Content="REST (Azure)"
-                GroupName="DataSource"
-                Tag="Rest" />
-            <TextBlock Text="Data is read-only while using REST unless you deploy your own service. See the GitHub repository for details." />
+                x:Name="blackRadio"
+                Content="黑色"
+                GroupName="style"
+                Tag="black" />
+            <TextBlock Text="计划是在这里能更改主题风格，但是UWP实在是太难了，现在基础功能也有点赶，等后人来实现这个功能吧" />
 
             <HyperlinkButton
-                x:Name="PrivacyButton"
+                x:Name="authorName"
                 Margin="0,25,0,0"
-                Content="Privacy statement" />
+                Content="张佳乐" />
             <HyperlinkButton
-                x:Name="LicenseButton"
-                Content="Additional license terms" />
+                x:Name="studentID"
+                Content="2017302580112" />
             <HyperlinkButton
-                x:Name="GitHubButton"
+                x:Name="GitHub"
                 Content="GitHub repository" />
         </StackPanel>
     </Grid>

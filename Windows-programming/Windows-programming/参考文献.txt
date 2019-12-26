@@ -2,3 +2,4 @@
 微软XAML控件示例：https://github.com/microsoft/Xaml-Controls-Gallery
 微软windows控件示例：https://github.com/windows-toolkit/WindowsCommunityToolkit
 UWP小书：https://blog.richasy.cn/code/uwp/
+wpf datagrid简单显示数据 https://blog.csdn.net/www89574622/article/details/76187254

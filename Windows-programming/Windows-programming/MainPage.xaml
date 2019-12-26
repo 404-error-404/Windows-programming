@@ -28,9 +28,9 @@
 
             <NavigationView.MenuItems>
                 <NavigationViewItem
-                    x:Name="CustomerListMenuItem"
-                    Content="{x:Bind CustomerListLabel}" 
-                    ToolTipService.ToolTip="{x:Bind CustomerListLabel}"
+                    x:Name="StudentListMenuItem"
+                    Content="{x:Bind StudentListLabel}" 
+                    ToolTipService.ToolTip="{x:Bind StudentListLabel}"
                     Icon="ContactInfo"/>
                 <NavigationViewItem
                     x:Name="OrderListMenuItem"
@@ -71,52 +71,4 @@
 
         </NavigationView>
     </Grid>
-
-    <!--下边是，，，无话可说的尝试-->
-    <!--<Grid>
-
-        <muxc:NavigationView x:Name="navigation">
-            <muxc:NavigationView.MenuItems>
-                <muxc:NavigationViewItem x:Name="connectDatabase" Icon="Play" Content="连接数据库" Tag="SamplePage1" Tapped="NavigationViewItem_Tapped" />
-                <muxc:NavigationViewItem Icon="Save" Content="保存" Tag="SamplePage2" />
-                <muxc:NavigationViewItem Icon="Refresh" Content="刷新" Tag="SamplePage3" />
-                <muxc:NavigationViewItem Icon="Stop" Content="退出" Tag="SamplePage4" />
-            </muxc:NavigationView.MenuItems>
-
-            <Grid>
-
-                <muxc:TreeView>
-                    <muxc:TreeView.RootNodes>
-                        <muxc:TreeViewNode Content="Flavors" IsExpanded="True">
-                            <muxc:TreeViewNode.Children>
-                                <muxc:TreeViewNode Content="Vanilla"/>
-                                <muxc:TreeViewNode Content="Strawberry"/>
-                                <muxc:TreeViewNode Content="Chocolate"/>
-                            </muxc:TreeViewNode.Children>
-                        </muxc:TreeViewNode>
-                    </muxc:TreeView.RootNodes>
-                </muxc:TreeView>
-
-                --><!--<TreeView CanDragItems="True" AllowDrop="True">
-                    <TreeView.RootNodes>
-                        
-                        <TreeViewNode>
-                            <TreeViewNode.Children>
-                                <TreeViewNode Content="1DSFD"/>
-                            </TreeViewNode.Children>
-                        </TreeViewNode>
-
-                        <TreeViewNode Content="root" HasUnrealizedChildren="True">
-                            <TreeViewNode.Children>
-                                <TreeViewNode Content="1"/>
-                            </TreeViewNode.Children>
-                        </TreeViewNode>
-
-                    </TreeView.RootNodes>
-                </TreeView>--><!--
-            </Grid>
-
-        </muxc:NavigationView>
-
-    </Grid>-->
 </Page>
